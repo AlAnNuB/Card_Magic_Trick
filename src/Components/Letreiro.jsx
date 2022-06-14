@@ -12,11 +12,13 @@ function Letreiro() {
     text-align: center;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
+    margin-left: auto; 
+    margin-right: auto;
     @media(max-width: 800px) {
     font-size: 1em;
     position: relative;
-  }
+    }
   `;
 
   return (

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import Button from "./Button";
-import Letreiro from "./Letreiro";
+import Cartas from './Cartas';
 
 function Tabuleiro() {
 
@@ -53,12 +52,12 @@ function Tabuleiro() {
     <FundoTabuleiro>
       <FundoTabuleiro2>
         <FundoTabuleiro3>
-          <Letreiro />
-          <Button />
+         <Cartas />
         </FundoTabuleiro3>
       </FundoTabuleiro2>
     </FundoTabuleiro>
   );
+
 }
 
 export default Tabuleiro;
