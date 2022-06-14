@@ -3,9 +3,9 @@ import Titulo from '../Components/Titulo'
 import Tabuleiro from "../Components/Tabuleiro";
 import styled from "styled-components";
 
-function Home() {
+function Home(props) {
 
-  const Body = styled.body`
+  const Body = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -20,7 +20,7 @@ function Home() {
 
   return(
   <Body>
-    <Titulo />
+      <Titulo text="Truque de Mágica" />
     <Tabuleiro />
   </Body>
   );

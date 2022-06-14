@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import Button from "./Button";
+import Letreiro from "./Letreiro";
 
 function Tabuleiro() {
 
@@ -39,7 +40,8 @@ function Tabuleiro() {
   text-align: center;
   margin-bottom: 1em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
   background: radial-gradient(50% 50% at 50% 50%, #343B68 0%, #3E4577 100%);
   border: 2px solid rgba(255, 255, 255, 0.15);
   justify-content: center;
@@ -51,7 +53,8 @@ function Tabuleiro() {
     <FundoTabuleiro>
       <FundoTabuleiro2>
         <FundoTabuleiro3>
-          <Button></Button>
+          <Letreiro />
+          <Button />
         </FundoTabuleiro3>
       </FundoTabuleiro2>
     </FundoTabuleiro>

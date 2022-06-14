@@ -15,10 +15,16 @@ function Titulo(props) {
     align-items: center;
     margin: 10px;
     margin-bottom: 0.2em;
+    @media(max-width: 800px) {
+    margin-bottom: 0;
+    font-size: 2em;
+    }
   `;
 
+  const {text} = props;
+
   return(
-    <Titulos>Truque de Mágica</Titulos>
+    <Titulos>{text}</Titulos>
   )
 }
 
