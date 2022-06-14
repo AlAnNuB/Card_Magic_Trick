@@ -1,10 +1,10 @@
 import React from "react";
 import "./Button.css";
 
-function Button() {
+function Button(props) {
  
   return(
-    <button type="button" className="button-86"  role="button">Vamos começar</button>
+    <button type="button" className="button-86" role="button" onClick={props.onHide}>Vamos começar</button>
   );
 }
 
