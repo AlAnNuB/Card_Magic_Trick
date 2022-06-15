@@ -18,7 +18,7 @@ function TresPilhas({deckID}) {
   const URL = "https://deckofcardsapi.com/api/deck";
 
   useEffect(() => {
-    if (cardsRestantes > 0 && totalPilhas > 0) {
+    if (cartasRestantes > 0 && totalPilhas > 0) {
       axios
         .get(`${URL}/${deckID}/pile/total/draw/?count=21`)
         .then(res => {
@@ -75,7 +75,7 @@ function TresPilhas({deckID}) {
                 .then(res =>
                   axios
                     .get(
-                      `${baseURL}/${deckID}/pile/total/add/?cards=${res.data.cards
+                      `${URL}/${deckID}/pile/total/add/?cards=${res.data.cards
                         .map(el => el.code)
                         .join(",")}`
                     )
@@ -114,7 +114,7 @@ function TresPilhas({deckID}) {
 
       return setPilhaSelecionada(null);
     }
-  }, [pilhaSelecionada, URL, deckID]);
+  }, [pilhaSelecionada, URL, deckID, img]);
 
   useEffect(() => {
     if (totalPilhas === 0 && cartasRestantes === 21) {
@@ -170,10 +170,11 @@ function TresPilhas({deckID}) {
     );
   };
 
-  //If finalCard is set then reveal otherwise show the 3 piles
   return (
     <div style={{ textAlign: "center" }}>
       {cartaFinal ? ExibindoCardFinal() : ExibindoPilhas()}
     </div>
   );
 }
+
+export default TresPilhas;

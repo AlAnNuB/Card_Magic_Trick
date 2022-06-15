@@ -1,10 +1,11 @@
 import React from "react";
 
 
-function Pilha({img, setTotalPilhas, pilha, setPilhaSelecionada, setImg}) {
+function Pilha({img, setTotalPilhas, pile, setPilhaSelecionada, setImg}) {
+  
   function clicando() {
     setTotalPilhas(num => num - 1);
-    setPilhaSelecionada(pilha.toString()); 
+    setPilhaSelecionada(pile.toString()); 
     setImg({
       0: [],
       1: [],

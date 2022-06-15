@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import TresPilhas from '../TresPilhas';
+import TresPilhas from './TresPilhas';
 import DeckInicial from './DeckInicial'
 
 function Jogo() {
@@ -36,7 +36,7 @@ function Jogo() {
   }, [novoDeck, URL]);
 
   useEffect(() => {
-    if (setArrayCartas.length === 21) {
+    if (arrayCartas.length === 21) {
       axios
         .get(`${URL}/new/shuffle/?cards=${arrayCartas.join(",")}`)
         .then(res => setDeck(res.data))
@@ -50,9 +50,7 @@ function Jogo() {
         .get(`${URL}/${deck.deck_id}/draw/?count=21`)
         .then(res =>
           axios
-            .get(
-              `${URL}/${deck.deck_id
-              }/pile/total/add/?cards=${res.data.cards
+            .get(`${URL}/${deck.deck_id}/pile/total/add/?cards=${res.data.cards
                 .map(el => el.code)
                 .join(",")}`
             )
