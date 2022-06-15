@@ -28,8 +28,8 @@ export default function Cartas() {
 
   return(
     <BaseDeck>
-      {start ? (<Jogo />) : (<Button onHide={e => setShow(state => !state)} />)}
-      
+      <Letreiro text="Escolha uma carta e selecione em qual piha ela está localizada 3 veses e eu direi qual é a carta que você escolheu." />
+      <Button text="Vamos começar" onHide={e => setShow(state => !state)} />
     </BaseDeck>
   );
   

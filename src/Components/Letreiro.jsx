@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function Letreiro() {
+function Letreiro(props) {
 
   const Conteudo = styled.div`
     font-size: 2em;
@@ -23,8 +23,9 @@ function Letreiro() {
 
   return (
     <Conteudo>
-      <h3>Escolha uma carta e selecione em qual piha ela está localizada 3 veses e eu direi qual é a carta que você escolheu.</h3>
-      <br />
+      <h3>
+      {props.text}
+      </h3>
     </Conteudo>
   );
 }
