@@ -1,10 +1,10 @@
 import React from "react";
-import "./Button.css";
+import "./ButtonStyle.jsx";
 
 function Button(props) {
  
   return(
-    <button id="botao" type="button" className="button-86" role="button" onClick={props.onHide}>{props.text}</button>
+    <button id="botao" type="button" className="button-86" role="button">{props.text}</button>
   );
 }
 

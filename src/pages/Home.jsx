@@ -1,28 +1,18 @@
 import React from "react";
-import Titulo from '../Components/Titulo'
-import Tabuleiro from "../Components/Tabuleiro";
-import styled from "styled-components";
+import Fundo from "../Components/Fundo";
+import Button from "../Components/Button";
+import { Link } from 'react-router-dom';
+import Letreiro from '../Components/Letreiro'
 
 function Home(props) {
 
-  const Body = styled.div`
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgb(98,105,159);
-    background: linear-gradient(90deg, rgba(98,105,159,1) 0%, rgba(193,199,240,1) 100%);
-  `;
-
   return(
-  <Body>
-    <Titulo text="Truque de Mágica" />
-    <Tabuleiro />
-  </Body>
+  <Fundo>
+      <Letreiro text="Escolha uma carta e selecione em qual piha ela está localizada 3 veses e eu direi qual é a carta que você escolheu." />
+      <Link to={'/Jogo'} style={{ textDecoration: 'none' }}>
+        <Button text="Vamos Começar ?"/>
+      </Link>
+  </Fundo>
   );
 }
 

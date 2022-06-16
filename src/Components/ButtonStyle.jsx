@@ -1,4 +1,7 @@
-.button-86 {
+import styled from 'styled-components';
+
+export const Button86 = styled.div`
+  button-86 {
   all: unset;
   width: 100px;
   height: 30px;
@@ -22,8 +25,8 @@
   margin-right: auto;
 }
 
-.button-86::after,
-.button-86::before {
+button-86::after,
+button-86::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -32,7 +35,7 @@
   transition: all .4s;
 }
 
-.button-86::before {
+button-86::before {
   transform: translate(0%, 0%);
   width: 100%;
   height: 100%;
@@ -40,7 +43,7 @@
   border-radius: 10px;
 }
 
-.button-86::after {
+button-86::after {
   transform: translate(10px, 10px);
   width: 35px;
   height: 35px;
@@ -50,20 +53,22 @@
   border-radius: 50px;
 }
 
-.button-86:hover::before {
+button-86:hover::before {
   transform: translate(5%, 20%);
   width: 110%;
   height: 110%;
 }
 
-.button-86:hover::after {
+button-86:hover::after {
   border-radius: 10px;
   transform: translate(0, 0);
   width: 100%;
   height: 100%;
 }
 
-.button-86:active::after {
+button-86:active::after {
   transition: 0s;
   transform: translate(0, 5%);
 }
+`;
+

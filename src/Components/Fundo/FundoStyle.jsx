@@ -1,11 +1,6 @@
-import React from "react";
 import styled from 'styled-components';
-import Cartas from './Cartas';
 
-function Tabuleiro() {
-
-  
-  const FundoTabuleiro = styled.div`
+export const FundoTabuleiro = styled.div`
   width: 95vw;
   height: 85vh;
   border-radius: 512px;
@@ -17,7 +12,7 @@ function Tabuleiro() {
   align-items: center;
   `;
 
-  const FundoTabuleiro2 = styled.div`
+export const FundoTabuleiro2 = styled.div`
   width: 90vw;
   height: 80vh;
   box-sizing: border-box;
@@ -31,7 +26,7 @@ function Tabuleiro() {
   align-items: center;
   `;
 
-  const FundoTabuleiro3 = styled.div`
+export const FundoTabuleiro3 = styled.div`
   width: 80vw;
   height: 70vh;
   box-sizing: border-box;
@@ -46,18 +41,3 @@ function Tabuleiro() {
   justify-content: center;
   align-items: center;
   `;
-
-  return(
-
-    <FundoTabuleiro>
-      <FundoTabuleiro2>
-        <FundoTabuleiro3>
-         <Cartas />
-        </FundoTabuleiro3>
-      </FundoTabuleiro2>
-    </FundoTabuleiro>
-  );
-
-}
-
-export default Tabuleiro;
