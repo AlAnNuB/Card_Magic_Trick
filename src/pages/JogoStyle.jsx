@@ -30,3 +30,24 @@ export const Pilha = styled.ul`
     }
   }
   `;
+
+export const Conjunto = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 600px) {
+      flex-direction: column;
+    } 
+    @media (max-width: 600px) {
+      flex-direction: row;
+    }  
+
+  img {
+      width: 75px;
+      height: 100px;
+    }
+
+`;

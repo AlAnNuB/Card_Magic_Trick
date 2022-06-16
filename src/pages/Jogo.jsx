@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Pilha  } from './JogoStyle';
-import { Link } from 'react-router-dom';
+import { Pilha, Conjunto } from './JogoStyle';
+import api from '../Components/Api'
+import Fundo from "../Components/Fundo";
 
-const baseURL = "https://deckofcardsapi.com/api/";
 
 function Jogo() {
   const [deck, setDeck] = useState(null);
@@ -12,9 +12,9 @@ function Jogo() {
 
   useEffect(() => {
     const pegandoDeck = async () => {
-      const resp = await baseURL.get('/deck/new/shuffle/?deck_count=1')
-      const deckID = resp.data
-      await baseURL.get(`/deck/${deckID}/draw/?count=21`).then(response => {
+      const resp = await api.get('/deck/new/shuffle/?deck_count=1')
+      const {deck_id} = resp.data
+      await api.get(`/deck/${deck_id}/draw/?count=21`).then(response => {
         setDeck(response.data.cards)
       })
     }
@@ -50,6 +50,7 @@ function Jogo() {
       const stack3 = []
 
       for (var i = 3; i < deckFinal.length + 1; i = i + 3) {
+        console.log('i', i)
         stack1.push(deckFinal[i - 3])
         stack2.push(deckFinal[i - 2]) 
         stack3.push(deckFinal[i - 1]) 
@@ -59,16 +60,16 @@ function Jogo() {
       setTimeout(() => { setDeck(stackFinal2) }, 2000);
     } else {
       setTimeout(() => { setDeck(deckFinal) }, 2000);
-      navigate.push("/Card", {
+      navigate.push("/cardfinal", {
         card: deckFinal[10]
       });
 
     } 
   }
   
-
   return(
-    <div>
+      <Fundo>
+        <Conjunto>
       <Pilha onClick={() => setStackInMiddle(1)}> 
         {deck && deck.slice(0, 7).map(card => (
           <li key={card.value}>
@@ -96,7 +97,8 @@ function Jogo() {
           </li>
         ))}
       </Pilha>
-    </div>
+      </Conjunto>
+      </Fundo>
   );
 }
 

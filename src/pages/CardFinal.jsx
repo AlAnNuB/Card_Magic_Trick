@@ -3,14 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../Components/Button';
 import { CardSolo } from "./CardStyle";
 import { Link } from 'react-router-dom';
+import Fundo from '../Components/Fundo';
 
-const Cards = () => {
+const CardFinal = () => {
 const navigate = useNavigate()
 
   const { card } = ('his', navigate.location.state)
 
  
   return(
+    <Fundo>
     <CardSolo>
       <h1>A sua carta é</h1>
       {card && (
@@ -20,7 +22,8 @@ const navigate = useNavigate()
         <Button text="Tentar Novamente"/>
       </Link>
     </CardSolo>
+    </Fundo>
   );
 }
 
-export default Cards;
+export default CardFinal;
