@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import TresPilhas from './TresPilhas';
 import DeckInicial from './DeckInicial'
 
@@ -10,11 +9,12 @@ function Jogo() {
   const [deck, setDeck] = useState(null);
   const [cartaSelecionada, setCartaSelecionada] = useState(false);
 
-  const URL = "https://deckofcardsapi.com/api/deck";
+  const corsURL = "https://cors-anywhere.herokuapp.com/";
+  const URL = `${corsURL}https://deckofcardsapi.com/api/deck`;
 
   useEffect(() => {
-    axios
-      .get(`${URL}/new/shuffle/`)
+    fetch(`${URL}/new/shuffle/`)
+      .then((res) => res.json())
       .then(res => {
         setNovoDeck(res.data);
       })
@@ -23,8 +23,8 @@ function Jogo() {
 
   useEffect(() => {
     if (novoDeck) {
-      axios
-        .get(`${URL}/${novoDeck.deck_id}/draw/?count=21`)
+      fetch(`${URL}/${novoDeck.deck_id}/draw/?count=21`)
+        .then((res) => res.json())
         .then(res => {
           res.data.cards.forEach(element => {
             setArrayCartas(codes => [...codes, element.code]);
@@ -37,8 +37,8 @@ function Jogo() {
 
   useEffect(() => {
     if (arrayCartas.length === 21) {
-      axios
-        .get(`${URL}/new/shuffle/?cards=${arrayCartas.join(",")}`)
+      fetch(`${URL}/new/shuffle/?cards=${arrayCartas.join(",")}`)
+        .then((res) => res.json())
         .then(res => setDeck(res.data))
         .catch(err => console.error(err));
     }
@@ -46,14 +46,10 @@ function Jogo() {
 
   useEffect(() => {
     if (deck) {
-      axios
-        .get(`${URL}/${deck.deck_id}/draw/?count=21`)
+      fetch(`${URL}/${deck.deck_id}/draw/?count=21`)
+        .then((res) => res.json())
         .then(res =>
-          axios
-            .get(`${URL}/${deck.deck_id}/pile/total/add/?cards=${res.data.cards
-                .map(el => el.code)
-                .join(",")}`
-            )
+          fetch(`${URL}/${deck.deck_id}/pile/total/add/?cards=${res.data.cards.map(el => el.code).join(",")}`)
             .then()
             .catch(err => console.error(err))
         )

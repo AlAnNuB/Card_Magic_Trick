@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Cartas from "../Cartas";
-import Button from "../Button";
 import Pilha from "./Pilha";
 
 function TresPilhas({deckID}) {
@@ -15,12 +12,13 @@ function TresPilhas({deckID}) {
     2: []
   });
 
-  const URL = "https://deckofcardsapi.com/api/deck";
+  const corsURL = "https://cors-anywhere.herokuapp.com/";
+  const URL = `${corsURL}https://deckofcardsapi.com/api/deck`;
 
   useEffect(() => {
     if (cartasRestantes > 0 && totalPilhas > 0) {
-      axios
-        .get(`${URL}/${deckID}/pile/total/draw/?count=21`)
+      fetch(`${URL}/${deckID}/pile/total/draw/?count=21`)
+        .then((res) => res.json())
         .then(res => {
           setCartasRestantes(res.data.piles.total.remaining);
 
@@ -33,10 +31,8 @@ function TresPilhas({deckID}) {
               .filter((el, index) => index % 3 === i)
               .map(el => el.image);
 
-            axios
-              .get(
-                `${URL}/${deckID}/pile/pile${i}/add/?cards=${cartasParaAdministrar}`
-              )
+            fetch(`${URL}/${deckID}/pile/pile${i}/add/?cards=${cartasParaAdministrar}`)
+              .then((res) => res.json())
               .then(res => {
                 setImg(obj => ({
                   ...obj,
@@ -54,44 +50,41 @@ function TresPilhas({deckID}) {
     const piles = Object.keys(img);
 
     if (pilhaSelecionada !== null) {
-      axios
-        .get(
-          `${URL}/${deckID}/pile/pile${piles.filter(n => n !== pilhaSelecionada)[0]
-          }/draw/?count=7`
-        )
+      fetch(`${URL}/${deckID}/pile/pile${piles.filter(n => n !== pilhaSelecionada)[0]}/draw/?count=7`)
+        .then((res) => res.json())
         .then(res =>
-          axios
-            .get(
+         fetch(
               `${URL}/${deckID}/pile/total/add/?cards=${res.data.cards
                 .map(el => el.code)
                 .join(",")}`
             )
+            .then((res) => res.json())
             .then(res =>
-              axios
-                .get(
+              fetch(
                   `${URL}/${deckID}/pile/pile${piles.filter(n => n === pilhaSelecionada)[0]
                   }/draw/bottom/?count=7`
                 )
+                .then((res) => res.json())
                 .then(res =>
-                  axios
-                    .get(
+                  fetch(
                       `${URL}/${deckID}/pile/total/add/?cards=${res.data.cards
                         .map(el => el.code)
                         .join(",")}`
                     )
+                    .then((res) => res.json())
                     .then(res =>
-                      axios
-                        .get(
+                      fetch(
                           `${URL}/${deckID}/pile/pile${piles.filter(n => n !== pilhaSelecionada).reverse()[0]
                           }/draw/?count=7`
                         )
+                        .then((res) => res.json())
                         .then(res =>
-                          axios
-                            .get(
+                          fetch(
                               `${URL}/${deckID}/pile/total/add/?cards=${res.data.cards
                                 .map(el => el.code)
                                 .join(",")}`
                             )
+                            .then((res) => res.json())
                             .then(res => {
                               setCartasRestantes(res.data.piles.total.remaining);
                               setImg({
@@ -118,8 +111,8 @@ function TresPilhas({deckID}) {
 
   useEffect(() => {
     if (totalPilhas === 0 && cartasRestantes === 21) {
-      axios
-        .get(`${URL}/${deckID}/pile/total/draw/?count=11`)
+      fetch(`${URL}/${deckID}/pile/total/draw/?count=11`)
+        .then((res) => res.json())
         .then(res => {
           setCartaFinal(res.data.cards[0].image);
         })
@@ -155,7 +148,7 @@ function TresPilhas({deckID}) {
             />
           </>
         ) : (
-          <Cartas />
+          null
         )}
       </>
     );
@@ -165,7 +158,9 @@ function TresPilhas({deckID}) {
       <>
         <p>Essa é a sua Carta ?</p>
         <img src={cartaFinal} alt="" />
-        <Button />
+        <p>
+          <a href="/">Tentar de novo ?</a>
+        </p>
       </>
     );
   };

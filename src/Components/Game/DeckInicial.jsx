@@ -1,5 +1,4 @@
 import React from "react";
-import Cartas from "../Cartas";
 
 function DeckInicial({ imgCartas, setCartaSelecionada }) {
   function Clicando() {
@@ -40,7 +39,7 @@ function DeckInicial({ imgCartas, setCartaSelecionada }) {
         textAlign: "center"
       }}
     >
-      {imgCartas.length === 21 ? Mostrar21Cartas() : <Cartas />}
+      {imgCartas.length === 21 ? Mostrar21Cartas() : null}
     </div>
   );
   

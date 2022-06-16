@@ -14,6 +14,11 @@ export default function Cartas() {
     setDisplay((state) => !show ? 'none' : 'flex');
     setStart((state) => !show ? true : false);
   }, [show]);
+  useEffect(() => {
+    if(!show){
+      <Jogo />
+    }
+  }, [show]);
 
   const BaseDeck = styled.div`
     width: 90%;

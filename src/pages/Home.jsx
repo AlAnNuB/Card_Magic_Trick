@@ -20,7 +20,7 @@ function Home(props) {
 
   return(
   <Body>
-      <Titulo text="Truque de Mágica" />
+    <Titulo text="Truque de Mágica" />
     <Tabuleiro />
   </Body>
   );
