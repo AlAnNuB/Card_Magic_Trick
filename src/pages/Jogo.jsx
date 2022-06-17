@@ -5,9 +5,11 @@ import api from '../Components/Api'
 import Fundo from "../Components/Fundo";
 
 
-function Jogo() {
+function Jogo({ onAddCart }) {
   const [deck, setDeck] = useState(null);
   let [round, setRound] = useState(1);
+  
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,6 +66,7 @@ function Jogo() {
         navigate("/cardfinal", {
           card: deckFinal[10]
         });
+        onAddCart(deckFinal[10])
       };
       sendSubmit()
     } 

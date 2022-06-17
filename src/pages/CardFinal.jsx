@@ -5,11 +5,12 @@ import { CardSolo } from "./CardStyle";
 import { Link } from 'react-router-dom';
 import Fundo from '../Components/Fundo';
 
-function CardFinal() {
+function CardFinal({cartas}) {
 
 const navigate = useNavigate()
 
-  const card = ('his', navigate)
+  const card = cartas;
+
 console.log(card)
   return(
     <Fundo>
