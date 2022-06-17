@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Pilha = styled.ul`
   list-style: none;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
    @media (max-width: 600px) {

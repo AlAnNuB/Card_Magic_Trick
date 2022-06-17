@@ -58,14 +58,12 @@ function Jogo({ onAddCart }) {
       }
 
       const stackFinal2 = stack1.concat(stack2).concat(stack3)
-      setTimeout(() => { setDeck(stackFinal2) }, 2000);
+      setTimeout(() => { setDeck(stackFinal2) }, 1000);
       console.log(round)
     } else {
-      setTimeout(() => { setDeck(deckFinal) }, 2000);
+      setTimeout(() => { setDeck(deckFinal) }, 1000);
       const sendSubmit = () => {
-        navigate("/cardfinal", {
-          card: deckFinal[10]
-        });
+        navigate("/cardfinal");
         onAddCart(deckFinal[10])
       };
       sendSubmit()
@@ -76,8 +74,8 @@ function Jogo({ onAddCart }) {
   <Fundo>
     <Conjunto>
       <Pilha onClick={() => setStackInMiddle(1)}> 
-        {deck && deck.slice(0, 7).map(card => (
-          <li key={card.value}>
+        {deck && deck.slice(0, 7).map((card, index) => (
+          <li key={index}>
             {card.image && (
               <img src={card.image} alt={card.value} />
             )}
@@ -85,8 +83,8 @@ function Jogo({ onAddCart }) {
         ))}
       </Pilha>
       <Pilha onClick={() => setStackInMiddle(2)}>
-        {deck && deck.slice(7, 14).map(card => (
-          <li key={card.value}>
+        {deck && deck.slice(7, 14).map((card, index) => (
+          <li key={index}>
             {card.image && (
               <img src={card.image} alt={card.value} />
             )}
@@ -94,8 +92,8 @@ function Jogo({ onAddCart }) {
         ))}
       </Pilha>
       <Pilha onClick={() => setStackInMiddle(3)}>
-        {deck && deck.slice(14, 21).map(card => (
-          <li key={card.value}>
+        {deck && deck.slice(14, 21).map((card, index) => (
+          <li key={index}>
             {card.image && (
               <img src={card.image} alt={card.value} />
             )}
