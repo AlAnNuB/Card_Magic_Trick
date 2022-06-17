@@ -8,9 +8,9 @@ function Home(props) {
 
   return(
   <Fundo>
-      <Letreiro text="Escolha uma carta e selecione em qual piha ela está localizada 3 veses e eu direi qual é a carta que você escolheu." />
+      <Letreiro text="Escolha uma carta, selecione em qual pilha ela está localizada 3 vezes e direi, qual foi a carta que você escolheu." />
       <Link to={'/Jogo'} style={{ textDecoration: 'none' }}>
-        <Button text="Vamos Começar ?"/>
+        <Button text="Vamos Começar"/>
       </Link>
   </Fundo>
   );

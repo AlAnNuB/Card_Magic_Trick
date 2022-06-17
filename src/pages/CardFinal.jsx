@@ -5,21 +5,21 @@ import { CardSolo } from "./CardStyle";
 import { Link } from 'react-router-dom';
 import Fundo from '../Components/Fundo';
 
-const CardFinal = () => {
+function CardFinal() {
+
 const navigate = useNavigate()
 
-  const { card } = ('his', navigate.location.state)
-
- 
+  const card = ('his', navigate)
+console.log(card)
   return(
     <Fundo>
     <CardSolo>
-      <h1>A sua carta é</h1>
+      <h1>A sua carta é:</h1>
       {card && (
         <img src={card.image} alt={card.value} />
       )}
-      <Link to={'/'} style={{ textDecoration: 'none' }}>
-        <Button text="Tentar Novamente"/>
+        <Link to={'/'} style={{ textDecoration: 'none' }}>
+          <Button text="Tentar Novamente" />
       </Link>
     </CardSolo>
     </Fundo>

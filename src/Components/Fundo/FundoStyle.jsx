@@ -9,12 +9,13 @@ export const FundoTabuleiro = styled.div`
   background: linear-gradient(180deg, rgba(54, 59, 103, 0.9) 0%, rgba(51, 57, 101, 0.9) 100%);
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   `;
 
 export const FundoTabuleiro2 = styled.div`
   width: 90vw;
   height: 80vh;
-  box-sizing: border-box;
   border-radius: 512px;
   text-align: center;
   display: flex;
@@ -22,12 +23,12 @@ export const FundoTabuleiro2 = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
+  margin: 0;
   `;
 
 export const FundoTabuleiro3 = styled.div`
   width: 80vw;
   height: 70vh;
-  box-sizing: border-box;
   border-radius: 512px;
   text-align: center;
   display: flex;
@@ -36,4 +37,5 @@ export const FundoTabuleiro3 = styled.div`
   border: 2px solid rgba(255, 255, 255, 0.15);
   justify-content: center;
   align-items: center;
+  margin: 0;
   `;

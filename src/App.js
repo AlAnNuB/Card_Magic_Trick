@@ -5,8 +5,8 @@ import StyleGeral from './Components/Style/Styles'
 function App() {
   return (
     <>
-    <Rotas />
     <StyleGeral />
+    <Rotas />
     </>
   );
 }

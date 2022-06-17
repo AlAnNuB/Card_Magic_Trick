@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { Pilha, Conjunto } from './JogoStyle';
 import api from '../Components/Api'
 import Fundo from "../Components/Fundo";
@@ -49,8 +49,7 @@ function Jogo() {
       const stack2 = []
       const stack3 = []
 
-      for (var i = 3; i < deckFinal.length + 1; i = i + 3) {
-        console.log('i', i)
+      for (var i = 3; i < deckFinal.length + 1; i += 3) {
         stack1.push(deckFinal[i - 3])
         stack2.push(deckFinal[i - 2]) 
         stack3.push(deckFinal[i - 1]) 
@@ -68,8 +67,8 @@ function Jogo() {
   }
   
   return(
-      <Fundo>
-        <Conjunto>
+  <Fundo>
+    <Conjunto>
       <Pilha onClick={() => setStackInMiddle(1)}> 
         {deck && deck.slice(0, 7).map(card => (
           <li key={card.value}>
@@ -97,8 +96,8 @@ function Jogo() {
           </li>
         ))}
       </Pilha>
-      </Conjunto>
-      </Fundo>
+    </Conjunto>
+  </Fundo>
   );
 }
 
