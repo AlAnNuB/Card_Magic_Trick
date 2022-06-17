@@ -8,3 +8,8 @@ O projeto está sendo desenvolvido em React e pode ser executado:
  - Baixando o projeto
  - Instalando as dependências pelo terminal com **npm i** ou **npm install**
  - Executando o projeto com **npm start**
+
+### Testando online:
+O projeto está sendo colocado na Vercel e no Netlify pelos links abaixo:
+ - Vercel: [Vercel - Card-Magic-Trick](https://card-magic-trick.vercel.app/)
+ - Netlify: [Netlify - Card-Magic-Trick](https://card-magic-trick.netlify.app/)
