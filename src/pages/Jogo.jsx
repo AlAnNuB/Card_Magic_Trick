@@ -7,7 +7,7 @@ import Fundo from "../Components/Fundo";
 
 function Jogo() {
   const [deck, setDeck] = useState(null);
-  const [round, setRound] = useState([]);
+  let [round, setRound] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function Jogo() {
       const stack2 = []
       const stack3 = []
 
-      for (var i = 3; i < deckFinal.length + 1; i += 3) {
+      for (var i = 3; i < deckFinal.length + 1; i = i + 3) {
         stack1.push(deckFinal[i - 3])
         stack2.push(deckFinal[i - 2]) 
         stack3.push(deckFinal[i - 1]) 
@@ -57,12 +57,15 @@ function Jogo() {
 
       const stackFinal2 = stack1.concat(stack2).concat(stack3)
       setTimeout(() => { setDeck(stackFinal2) }, 2000);
+      console.log(round)
     } else {
       setTimeout(() => { setDeck(deckFinal) }, 2000);
-      navigate.push("/cardfinal", {
-        card: deckFinal[10]
-      });
-
+      const sendSubmit = () => {
+        navigate("/cardfinal", {
+          card: deckFinal[10]
+        });
+      };
+      sendSubmit()
     } 
   }
   
